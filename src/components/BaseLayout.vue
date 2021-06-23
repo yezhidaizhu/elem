@@ -1,13 +1,13 @@
 <template>
   <div class="flex items-stretch h-screen">
-    <el-scrollbar class="overflow-hidden ">
+    <el-scrollbar class="overflow-hidden shadow-md">
       <slot name="sider" />
     </el-scrollbar>
     <div class="flex flex-col flex-1">
-      <header class="flex items-center header  p-2">
+      <header class="flex items-center header  p-4 shadow  bg-white">
         <slot name="header" />
       </header>
-      <el-scrollbar class="flex-1 p-2">
+      <el-scrollbar class="flex-1">
         <slot name="content" />
       </el-scrollbar>
     </div>
@@ -16,7 +16,7 @@
 
 <style scoped>
 .header {
-  height: 48px;
+  height: 64px;
   overflow: hidden;
 }
 </style>

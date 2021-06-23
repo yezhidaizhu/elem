@@ -1,4 +1,4 @@
 
 export default {
-  title: "Function Stream"
+  title: "Demo"
 }

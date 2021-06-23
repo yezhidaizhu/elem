@@ -3,7 +3,7 @@ import App from './App.vue'
 import './style.css'
 import './mock';
 
-import ElementPlus from 'element-plus';
+import ElementPlus, { ElButton, ElSelect } from 'element-plus';
 import { VueAxios } from '@/utils/request';
 import router from '@/router/index'
 

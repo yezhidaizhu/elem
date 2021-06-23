@@ -1,44 +1,43 @@
 <template>
   <BaseLayout>
     <template #sider>
-      <Sider ref="menu"
-             :isCollapse="isCollapse">
-        <template #title>
-          <span class="truncate">Project</span>
-        </template>
-      </Sider>
+      <Sider :isCollapse="isCollapse"
+             :title="title"
+             :menus="menus" />
     </template>
+
     <template #header>
-      <span @click="onChangMenuCollapse">
-        <i class='text-xl hover:text-blue-500'
-           :class="isCollapse ? 'el-icon-s-unfold':'el-icon-s-fold'"></i>
-      </span>
+      <Header :onChangMenuCollapse="onChangMenuCollapse"
+              :isCollapse="isCollapse" />
     </template>
+
     <template #content>
-      <router-view></router-view>
+      <div class="m-4 shadow-sm bg-white p-2">
+        <router-view></router-view>
+      </div>
     </template>
   </BaseLayout>
 </template>
 
-<script >
+<script setup>
 import BaseLayout from '@/components/BaseLayout.vue'
 import Sider from '@/components/Sider.vue';
+import Header from '@/components/Header.vue';
+import { ref } from 'vue';
+import { asyncRouterMap } from '@/config/router.config';
+import Config from '@/config/config';
 
-export default {
-  components: {
-    BaseLayout,
-    Sider,
-  },
-  data() {
-    return {
-      isCollapse: true
-    }
-  },
-  methods: {
-    onChangMenuCollapse() {
-      this.isCollapse = !this.isCollapse;
-    }
-  }
+const isCollapse = ref(false);
+const menus = ref([]);
+const title = ref(Config.title);
+
+// menu
+const routes = asyncRouterMap.find((item) => item.path === "/");
+menus.value = routes && routes?.children || [];
+
+function onChangMenuCollapse() {
+  isCollapse.value = !isCollapse.value;
 }
+
 </script>
 

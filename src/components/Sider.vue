@@ -4,7 +4,7 @@
            @open="handleOpen"
            @close="handleClose"
            :collapse="isCollapse">
-    <div class="text-3xl font-bold flex justify-center p-2 overflow-hidden truncate ">
+    <div class="text-3xl font-bold flex justify-center p-2">
       <slot name="title">{{title}}</slot>
     </div>
     <el-submenu index="1">
@@ -48,7 +48,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Title"
+      default: "Project"
     },
     isCollapse: {
       type: Boolean,
@@ -69,10 +69,13 @@ export default {
 }
 </script>
 
-<style >
-.el-menu-vertical {
+<style>
+.el-menu-vertical:not(.el-menu--collapse) {
   width: 200px;
   min-height: 100vh;
   padding-bottom: 64px;
+}
+.el-menu--collapse {
+  min-height: 100vh;
 }
 </style>

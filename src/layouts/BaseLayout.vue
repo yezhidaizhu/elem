@@ -1,10 +1,12 @@
 <template>
   <BaseLayout>
     <template #sider>
-      <Menu ref="menu"
-            :isCollapse="isCollapse">
-        <template #title>Title</template>
-      </Menu>
+      <Sider ref="menu"
+             :isCollapse="isCollapse">
+        <template #title>
+          <span class="truncate">Project</span>
+        </template>
+      </Sider>
     </template>
     <template #header>
       <span @click="onChangMenuCollapse">
@@ -13,19 +15,19 @@
       </span>
     </template>
     <template #content>
-      content
+      <router-view></router-view>
     </template>
   </BaseLayout>
 </template>
 
 <script >
 import BaseLayout from '@/components/BaseLayout.vue'
-import Menu from '@/components/Menu.vue';
+import Sider from '@/components/Sider.vue';
 
 export default {
   components: {
     BaseLayout,
-    Menu,
+    Sider,
   },
   data() {
     return {

@@ -1,11 +1,11 @@
-import { BasicLayout, BasicLayoutContent } from '@/layouts'
+import BaseLayout from '@/layouts/BaseLayout.vue'
 
 // RouteView
 export const asyncRouterMap = [
   {
     path: '/',
     name: 'Home',
-    component: BasicLayout,
+    component: BaseLayout,
     meta: { title: 'Home' },
     redirect: '/function',
     children: [

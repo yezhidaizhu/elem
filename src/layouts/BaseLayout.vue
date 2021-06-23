@@ -16,6 +16,11 @@
         <router-view></router-view>
       </div>
     </template>
+
+    <template #footer>
+      <Footer />
+    </template>
+
   </BaseLayout>
 </template>
 
@@ -23,6 +28,7 @@
 import BaseLayout from '@/components/BaseLayout.vue'
 import Sider from '@/components/Sider.vue';
 import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue';
 import { ref } from 'vue';
 import { asyncRouterMap } from '@/config/router.config';
 import Config from '@/config/config';

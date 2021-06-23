@@ -9,6 +9,7 @@
       </header>
       <el-scrollbar class="flex-1">
         <slot name="content" />
+        <slot name="footer" />
       </el-scrollbar>
     </div>
   </div>

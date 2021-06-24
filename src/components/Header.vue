@@ -1,8 +1,16 @@
 <template>
-  <span @click="onChangMenuCollapse">
-    <i class='text-xl hover:text-blue-500'
-       :class="isCollapse ? 'el-icon-s-unfold':'el-icon-s-fold'"></i>
-  </span>
+  <div class="">
+    <div>
+      <span @click="onChangMenuCollapse">
+        <i class='text-xl hover:text-blue-500'
+           :class="isCollapse ? 'el-icon-s-unfold':'el-icon-s-fold'"></i>
+      </span>
+    </div>
+
+    <div>
+
+    </div>
+  </div>
 </template>
 <script >
 export default {

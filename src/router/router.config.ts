@@ -12,20 +12,20 @@ export const asyncRouterMap = [
     children: [
       {
         path: '/function',
-        name: 'function',
+        name: 'menu.function',
         meta: { title: 'function', icon: 'el-icon-s-grid' }, // icon @https://2x.antdv.com/components/icon-cn
         component: () => import('@/views/function/index.vue'),
       },
       {
         path: '/exp',
-        name: 'exp',
+        name: 'menu.exp',
         meta: { title: 'function', icon: 'el-icon-info' }, // icon @https://2x.antdv.com/components/icon-cn
         component: RouterView,
         redirect: '/exp/function',
         children: [
           {
             path: '/exp/function',
-            name: 'test',
+            name: 'menu.test',
             meta: { title: 'function', icon: 'el-icon-error' }, // icon @https://2x.antdv.com/components/icon-cn
             component: () => import('@/views/exception/404.vue'),
           },

@@ -9,7 +9,7 @@
       <template #title>
         <i v-if="item.children"
            :class="item.meta.icon"></i>
-        <span>{{item.name}}</span>
+        <span>{{$t(item.name)}}</span>
       </template>
       <SubMenu :menus="item.children" />
     </component>

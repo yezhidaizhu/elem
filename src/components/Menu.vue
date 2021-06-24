@@ -4,9 +4,12 @@
     <component :is="item.children ? 'ElSubmenu':'ElMenuItem'"
                :index="item.path"
                :route="item">
+      <i v-if="!item.children"
+         :class="item.meta.icon"></i>
       <template #title>
-        <i :class="item.meta.icon"></i>
-        {{item.name}}
+        <i v-if="item.children"
+           :class="item.meta.icon"></i>
+        <span>{{item.name}}</span>
       </template>
       <SubMenu :menus="item.children" />
     </component>

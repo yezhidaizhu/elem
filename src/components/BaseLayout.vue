@@ -19,6 +19,7 @@
 .baselayout-header {
   height: 64px;
   overflow: hidden;
+  z-index: 10;
 }
 .baselayout-content-scrollbar .el-scrollbar__view {
   min-height: 95%;

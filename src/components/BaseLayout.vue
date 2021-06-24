@@ -4,10 +4,10 @@
       <slot name="sider" />
     </el-scrollbar>
     <div class="flex flex-col flex-1">
-      <header class="flex items-center header  p-4 shadow  bg-white">
+      <header class="baselayout-header flex items-center p-4 shadow  bg-white">
         <slot name="header" />
       </header>
-      <el-scrollbar class="flex-1">
+      <el-scrollbar class="flex-1 baselayout-content-scrollbar">
         <slot name="content" />
         <slot name="footer" />
       </el-scrollbar>
@@ -15,10 +15,17 @@
   </div>
 </template>
 
-<style scoped>
-.header {
+<style>
+.baselayout-header {
   height: 64px;
   overflow: hidden;
+}
+.baselayout-content-scrollbar .el-scrollbar__view {
+  min-height: 95%;
+  display: flex;
+  /* width: 100%; */
+  flex-direction: column;
+  justify-content: space-between;
 }
 </style>
 

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { asyncRouterMap } from '@/config/router.config'
+import { asyncRouterMap } from '@/router/router.config'
 
 export default createRouter({
   history: createWebHistory(),

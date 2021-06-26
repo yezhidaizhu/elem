@@ -1,13 +1,13 @@
 <template>
-  <el-menu default-active="1-4-1"
-           class="el-menu-vertical"
-           @open="handleOpen"
-           @close="handleClose"
-           :collapse="isCollapse"
-           :router="true">
+  <el-menu
+    default-active="1-4-1"
+    class="el-menu-vertical"
+    :collapse="isCollapse"
+    :router="true"
+  >
     <div class="text-3xl font-bold flex justify-center p-2">
       <slot>
-        <span class="truncate">{{title}}</span>
+        <span class="truncate">{{ title }}</span>
       </slot>
     </div>
     <Menu :menus="menus" />
@@ -15,37 +15,31 @@
 </template>
 
 <script>
-import Menu from './Menu.vue'
+import Menu from "./Menu.vue";
+import { computed } from "vue";
+import { useStore } from "vuex";
+
 export default {
+  setup() {
+    const store = useStore();
+    return {
+      isCollapse: computed(() => store.state.app.sideCollapsed),
+    };
+  },
   props: {
     title: {
       type: String,
-      default: "Project"
-    },
-    isCollapse: {
-      type: Boolean,
-      default: false
+      default: "Project",
     },
     menus: {
       type: Array,
       default: [],
-    }
+    },
   },
   components: {
     Menu,
   },
-  methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    onCollapse() {
-      this.isCollapse = !this.isCollapse;
-    }
-  }
-}
+};
 </script>
 
 <style>

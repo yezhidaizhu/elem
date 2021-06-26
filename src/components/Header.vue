@@ -29,26 +29,25 @@
 <script >
 import store from "store";
 import defaultConfig from "@/config/config";
+import { computed } from "vue";
+import { useStore } from "vuex";
 
 export default {
   setup() {
+    const store = useStore();
     const LangMap = {
       zh: "中文",
       en: "English",
     };
     return {
       LangMap,
+      isCollapse: computed(() => store.state.app.sideCollapsed),
+      onChangMenuCollapse: () =>
+        store.dispatch(
+          "app/onChangeSideCollapsed",
+          !store.state.app.sideCollapsed
+        ),
     };
-  },
-  props: {
-    isCollapse: {
-      type: Boolean,
-      default: false,
-    },
-    onChangMenuCollapse: {
-      type: Function,
-      default: () => {},
-    },
   },
   created() {
     const lang = store.get("lang") || defaultConfig?.defaultLang || "en";

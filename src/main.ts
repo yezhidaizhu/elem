@@ -7,7 +7,8 @@ import ElementPlus from 'element-plus';
 import { VueAxios } from '@/utils/request';
 import router from '@/router/index';
 import antdIcon from './core/antdv_icon';
-import i18n from './i18n'
+import i18n from './i18n';
+import store from '@/store/index';
 
 const app = createApp(App)
 
@@ -16,6 +17,7 @@ app.use(antdIcon);
 app.use(router);
 app.use(VueAxios);
 app.use(ElementPlus);
+app.use(store);
 
 app.mount('#app');
 

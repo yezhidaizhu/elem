@@ -38,6 +38,9 @@
       "@/utils/*": [
         "./src/utils/*"
       ],
+      "@/store/*": [
+        "./src/store/*"
+      ],
     }
   },
   "include": [

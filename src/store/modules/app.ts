@@ -3,10 +3,14 @@ const app = {
     namespaced: true,
     state: {
         sideCollapsed: false,
+        isRefresh: false, // 与 @/layouts/BaseLayout.vue 配合刷新
     },
     actions: {
         onChangeSideCollapsed({ commit }, state: Boolean) {
             commit('save', { sideCollapsed: state });
+        },
+        onRefresh({ commit }, state = true) {
+            commit('save', { isRefresh: state });
         }
     },
     mutations: {

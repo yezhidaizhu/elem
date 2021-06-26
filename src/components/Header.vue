@@ -7,7 +7,10 @@
           :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
         ></i>
       </span>
-      <i class="el-icon-refresh-right text-xl hover:text-blue-500" />
+      <i
+        @click="onRefresh"
+        class="el-icon-refresh-right text-xl hover:text-blue-500"
+      />
     </div>
     <div>
       <!-- lang -->
@@ -47,6 +50,7 @@ export default {
           "app/onChangeSideCollapsed",
           !store.state.app.sideCollapsed
         ),
+      onRefresh: () => store.dispatch("app/onRefresh"),
     };
   },
   created() {

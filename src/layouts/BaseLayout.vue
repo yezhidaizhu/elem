@@ -10,7 +10,7 @@
 
     <template #content>
       <div class="m-4 shadow-sm bg-white p-2">
-        <router-view></router-view>
+        <router-view v-if="!isRefresh"></router-view>
       </div>
     </template>
 
@@ -20,7 +20,7 @@
   </BaseLayout>
 </template>
 
-<script setup>
+<script>
 import BaseLayout from "@/components/BaseLayout.vue";
 import Sider from "@/components/Sider.vue";
 import Header from "@/components/Header.vue";
@@ -28,12 +28,36 @@ import Footer from "@/components/Footer.vue";
 import { ref } from "vue";
 import { asyncRouterMap } from "@/router/router.config";
 import Config from "@/config/config";
+import { computed } from "vue";
+import { useStore } from "vuex";
 
-const menus = ref([]);
-const title = ref(Config.title);
+export default {
+  setup() {
+    const menus = ref([]);
+    const title = ref(Config.title);
+    const store = useStore();
+    // menu
+    const routes = asyncRouterMap.find((item) => item.path === "/");
+    menus.value = (routes && routes?.children) || [];
 
-// menu
-const routes = asyncRouterMap.find((item) => item.path === "/");
-menus.value = (routes && routes?.children) || [];
+    return {
+      title,
+      menus,
+      isRefresh: computed(() => store.state.app.isRefresh),
+    };
+  },
+  components: {
+    BaseLayout,
+    Sider,
+    Header,
+    Footer,
+  },
+  watch: {
+    isRefresh() {
+      if (!this.isRefresh) return; // 避免两次
+      this.$nextTick(() => this.$store.dispatch("app/onRefresh", false));
+    },
+  },
+};
 </script>
 

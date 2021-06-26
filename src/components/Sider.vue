@@ -5,7 +5,7 @@
     :collapse="isCollapse"
     :router="true"
   >
-    <div class="text-3xl font-bold flex justify-center p-2">
+    <div class="text-2xl font-bold flex justify-center p-2 py-4">
       <slot>
         <span class="truncate">{{ title }}</span>
       </slot>
@@ -44,7 +44,7 @@ export default {
 
 <style>
 .el-menu-vertical:not(.el-menu--collapse) {
-  width: 200px;
+  width: 256px;
   min-height: 100vh;
   padding-bottom: 64px;
 }

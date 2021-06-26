@@ -4,11 +4,13 @@
       <slot name="sider" />
     </el-scrollbar>
     <div class="flex flex-col flex-1">
-      <header class="baselayout-header flex items-center p-4 shadow  bg-white">
+      <header class="baselayout-header flex items-center p-4 shadow bg-white">
         <slot name="header" />
       </header>
       <el-scrollbar class="flex-1 baselayout-content-scrollbar">
-        <slot name="content" />
+        <div>
+          <slot name="content" />
+        </div>
         <slot name="footer" />
       </el-scrollbar>
     </div>

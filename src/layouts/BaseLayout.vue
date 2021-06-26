@@ -9,9 +9,7 @@
     </template>
 
     <template #content>
-      <div class="m-4 shadow-sm bg-white p-2">
-        <router-view v-if="!isRefresh"></router-view>
-      </div>
+      <router-view v-if="!isRefresh"></router-view>
     </template>
 
     <template #footer>

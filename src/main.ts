@@ -9,6 +9,7 @@ import router from '@/router/index';
 import antdIcon from './core/antdv_icon';
 import i18n from './i18n';
 import store from '@/store/index';
+import customComponents from '@/components/index'
 
 const app = createApp(App)
 
@@ -18,6 +19,7 @@ app.use(router);
 app.use(VueAxios);
 app.use(ElementPlus);
 app.use(store);
+app.use(customComponents);
 
 app.mount('#app');
 

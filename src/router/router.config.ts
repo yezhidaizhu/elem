@@ -5,7 +5,7 @@ import { RouterView } from 'vue-router'
 export const asyncRouterMap = [
   {
     path: '/',
-    name: 'Home',
+    name: 'menu.Home',
     component: BaseLayout,
     meta: { title: 'Home' },
     redirect: '/function',
